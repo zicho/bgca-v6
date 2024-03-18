@@ -14,7 +14,7 @@
 </script>
 
 <CenteredLayout>
-	<FormCard title="Login" errorMessage={$message}>
+	<FormCard title="Register" errorMessage={$message}>
 		<form use:enhance method="post" class="mb-4 lg:mb-0 flex flex-col">
 			<Input
 				id="username"
@@ -34,14 +34,23 @@
 				type="password"
 				errors={$errors.password}
 				{...$constraints.password}
+				classes="mb-2"
+			/>
+			<Input
+				id="confirm_password"
+				required
+				bind:value={$form.confirm_password}
+				label="Confirm password"
+				type="password"
+				errors={$errors.confirm_password}
+				{...$constraints.confirm_password}
 				classes="mb-6"
 			/>
-
-			<Button label="Sign in" id="sign-in-btn" style="primary" type="submit" />
+			<Button label="Register" id="register-btn" style="primary" type="submit" />
 		</form>
 		<div slot="footer">
 			<div class="divider" />
-			<Button label="Register" id="goto-register-btn" style="link" />
+			<Button label="Login" id="goto-login-btn" style="link" />
 		</div>
 	</FormCard>
 </CenteredLayout>

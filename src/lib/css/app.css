@@ -62,6 +62,16 @@
     .border-error {
         border-color: #c9391d;
     }
+
+    
+    .form-label-error {
+        color: #c9391d;
+    }
+
+    input.form-placeholder-error::placeholder {
+        color: #c9391d;
+        opacity: 1; /* Ensures full opacity for Firefox */
+      }
 }
 
 * {
