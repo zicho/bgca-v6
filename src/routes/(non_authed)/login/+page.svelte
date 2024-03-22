@@ -1,12 +1,12 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
+	import LinkButton from '$lib/components/LinkButton.svelte';
 	import Input from '$lib/components/form/Input.svelte';
-	import { superForm } from 'sveltekit-superforms/client';
-	import type { PageData } from './$types';
-	import FormCard from '$lib/layout/FormCard.svelte';
 	import CenteredLayout from '$lib/layout/CenteredLayout.svelte';
+	import FormCard from '$lib/layout/FormCard.svelte';
+	import { superForm } from 'sveltekit-superforms/client';
 
-	export let data: PageData;
+	let { data } = $props();
 
 	const { form, constraints, message, enhance, errors } = superForm(data.form, {
 		clearOnSubmit: 'none'
@@ -41,7 +41,7 @@
 		</form>
 		<div slot="footer">
 			<div class="divider" />
-			<Button label="Register" id="goto-register-btn" style="link" />
+			<LinkButton label="Register" id="goto-register-btn" href="/register" classes="w-full" />
 		</div>
 	</FormCard>
 </CenteredLayout>

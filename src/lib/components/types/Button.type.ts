@@ -13,6 +13,6 @@ export type TButton = {
         "warning" |
         "error"
     disabled?: boolean,
-    class?: string,
+    classes?: string,
     type?: "button" | "submit"
 }

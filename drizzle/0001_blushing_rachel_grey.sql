@@ -1,0 +1,1 @@
+ALTER TABLE user ADD `pw_hash` text NOT NULL;

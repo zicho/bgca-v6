@@ -86,10 +86,11 @@
     @apply navbar-color
 }
 
-.navbar li a:active {
-    background-color: none !important;
+.navbar li a:active, .navbar li a:focus {
     background: none !important;
+    @apply text-primary-content
 }
+
 
 .btn-ghost {
     @apply border border-base-300
