@@ -11,8 +11,6 @@
 		type = 'text',
 		constraints
 	}: TInput = $props();
-
-	console.dir(errors);
 </script>
 
 <div class={classes || ''}>

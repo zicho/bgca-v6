@@ -1,12 +1,12 @@
-import { sqliteTable, text, integer } from 'drizzle-orm/sqlite-core';
+import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core';
 
 export type TUser = typeof userTable.$inferSelect;
 export type TNewUser = typeof userTable.$inferInsert;
 
 export const userTable = sqliteTable('user', {
 	id: text('id').notNull().primaryKey(),
-	username: text('email').notNull(),
-	pw_hash: text('pw_hash').notNull(),
+	username: text('username').notNull(),
+	pw_hash: text('pw_hash').notNull()
 });
 
 export const sessionTable = sqliteTable('session', {
@@ -16,4 +16,3 @@ export const sessionTable = sqliteTable('session', {
 		.references(() => userTable.id),
 	expiresAt: integer('expires_at').notNull()
 });
-

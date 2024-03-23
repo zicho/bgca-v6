@@ -1,8 +1,11 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 	import '$lib/css/app.css';
+	import logger from '$lib/logging/logger';
 	let { data } = $props();
 	const { user } = $derived(data);
+
+	logger.info('Poo!');
 </script>
 
 <div class="navbar h-16 text-primary-content px-4">
