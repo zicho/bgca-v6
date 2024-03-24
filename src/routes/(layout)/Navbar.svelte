@@ -8,7 +8,7 @@
 
 	let open: boolean;
 
-	const navbarLinks = $derived(generateNavbarLinks(user));
+	const navbarLinks = $derived(generateNavbarLinks());
 
 	const menuDataAuthenticated = $derived(navbarLinks.filter((item) => item.authOnly));
 	const menuDataNotAuthenticated = $derived(navbarLinks.filter((item) => !item.authOnly));

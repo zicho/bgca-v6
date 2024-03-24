@@ -17,6 +17,7 @@
 		"migrate": "tsx ./migrate.ts"
 	},
 	"devDependencies": {
+		"@iconify/json": "^2.2.195",
 		"@playwright/test": "^1.28.1",
 		"@sveltejs/adapter-auto": "^3.0.0",
 		"@sveltejs/kit": "^2.0.0",
@@ -40,6 +41,7 @@
 		"tslib": "^2.4.1",
 		"tsx": "^4.7.1",
 		"typescript": "^5.0.0",
+		"unplugin-icons": "^0.18.5",
 		"vite": "^5.0.3",
 		"vitest": "^1.2.0",
 		"zod": "^3.22.4"
