@@ -1,6 +1,7 @@
 <script lang="ts">
-	import type { TLinkButton } from '$lib/components/types/LinkButton.type';
-	const { id, label, href, external, forceReloadOnClicked, disabled, classes }: TLinkButton = $props();
+	import type { LinkButtonProps } from '$lib/components/props/LinkButtonProps';
+	const { id, label, href, external, forceReloadOnClicked, disabled, classes }: LinkButtonProps =
+		$props();
 </script>
 
 <a

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { TInput } from '$lib/components/types/Input.type';
+	import type { InputProps } from '$lib/components/props/InputProps';
 	let {
 		id,
 		value,
@@ -10,7 +10,7 @@
 		classes,
 		type = 'text',
 		constraints
-	}: TInput = $props();
+	}: InputProps = $props();
 </script>
 
 <div class={classes || ''}>
