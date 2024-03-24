@@ -8,10 +8,10 @@
 
 	let { user }: NavbarProps = $props();
 
-	let open = $state<boolean>(false);
+	let menuModalOpen = $state<boolean>(false);
 
 	afterNavigate(() => {
-		open = false;
+		menuModalOpen = false;
 	});
 
 	const navbarLinks = $derived(generateNavbarLinks());
@@ -39,6 +39,9 @@
 				>
 					<SignoutIcon /><button class="px-4" type="submit">Logout</button>
 				</form>
+				<label class="flex items-center justify-center cursor-pointer" for="signout_modal"
+					><SignoutIcon class="mr-4" />Sign out</label
+				>
 			{:else}
 				{#each menuDataNotAuthenticated as link}
 					<NavbarLink {...link} />
@@ -51,7 +54,7 @@
 	</div>
 </div>
 
-<input type="checkbox" id="modal-menu" class="modal-toggle" bind:checked={open} />
+<input type="checkbox" id="modal-menu" class="modal-toggle" bind:checked={menuModalOpen} />
 <div class="modal md:hidden">
 	<div class="modal-box">
 		<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
@@ -61,9 +64,10 @@
 				{#each menuDataAuthenticated as link}
 					<NavbarLink {...link} id="{link.id}-modal" />
 				{/each}
-				<form class="flex items-center justify-start" use:enhance action="/logout" method="post">
-					<SignoutIcon /><button class="px-4 w-full text-left" type="submit">Logout</button>
-				</form>
+
+				<label class="flex items-center hover:cursor-pointer" for="signout_modal"
+					><SignoutIcon class="mr-4" />Sign out</label
+				>
 			{:else}
 				{#each menuDataNotAuthenticated as link}
 					<NavbarLink {...link} id="{link.id}-modal" />
