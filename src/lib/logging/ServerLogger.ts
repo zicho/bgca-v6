@@ -2,7 +2,7 @@ import { PRIVATE_PINO_LOG_LEVEL } from '$env/static/private';
 import { saveLogMessage } from '$lib/server/database/queries/logging/logServerError';
 import type { TNewLogMessage } from '$lib/server/database/schema/logging';
 import pino, { type Logger, type LoggerOptions } from 'pino';
-import { LogLevels, type TLogEntry, type TLogLevel } from './LogTypes';
+import { type TLogEntry, type TLogLevel } from './LogTypes';
 
 export type TServerError = {
 	details: unknown;
@@ -52,13 +52,14 @@ class ServerLogger {
 		loggedByUser,
 		level
 	}: TLogEntry & { level: TLogLevel }) {
-		this.logger[level]({ ...details, context, src, loggedByUser }, message!);
+		const detailsContent = details as object;
+		this.logger[level]({ ...detailsContent, context, src, loggedByUser }, message!);
 		this.logToDb({
 			details,
 			context,
 			src,
 			loggedByUser,
-			level: LogLevels.Info
+			level
 		});
 	}
 

@@ -12,4 +12,4 @@ export const LogLevels = {
 export type TLogLevel = (typeof LogLevels)[keyof typeof LogLevels];
 export type TLogContext = 'client' | 'server';
 
-export type TLogEntry = Omit<TNewLogMessage, 'level' | 'details'> & { details: object };
+export type TLogEntry = Omit<TNewLogMessage, 'level'>;
