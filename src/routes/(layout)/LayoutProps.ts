@@ -14,3 +14,7 @@ export type NavbarLinkProps = {
 	authOnly: boolean;
 	classes?: string;
 };
+
+export type SignOutModalProps = {
+	open: boolean;
+};

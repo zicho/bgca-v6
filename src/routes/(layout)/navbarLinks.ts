@@ -1,5 +1,5 @@
 import { DashboardIcon, LoginIcon, RegisterIcon } from '$lib/data/ui/icons';
-import type { NavbarLinkProps } from './NavbarProps';
+import type { NavbarLinkProps } from './LayoutProps';
 // import { UserIcon, MailIcon, GameIcon, CalendarIcon, SignoutIcon, LoginIcon, RegisterIcon, DashboardIcon } from "$lib/data/icons";
 // import type { NavbarLinkProps } from "$lib/components/props/components/NavbarLinkProps";
 

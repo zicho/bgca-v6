@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { NavbarLinkProps } from './NavbarProps';
+	import type { NavbarLinkProps } from './LayoutProps';
 
 	let { id, url, aria, displayText, icon, classes }: NavbarLinkProps = $props();
 </script>

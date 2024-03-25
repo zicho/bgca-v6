@@ -58,7 +58,7 @@ export async function handleError({ error, event, status, message }) {
 			status,
 			message
 		},
-		'Uncaught error was caught in server hooks'
+		'Error was caught in server hooks'
 	);
 
 	return {

@@ -1,7 +1,17 @@
 <script lang="ts">
-	import type { PageData } from './$types';
+	import BasePageLayout from '$lib/layout/BasePageLayout.svelte';
 
-	export let data: PageData;
+	let { data } = $props();
+	const { user } = $derived(data);
 </script>
 
-Dashboard is a protected route.
+<BasePageLayout>
+	<article class="prose">
+		<h1>Dashboard</h1>
+		<p>
+			This is a
+			<strong>protected route.</strong> You are authenticated as user:
+			<strong>{user?.username}</strong>.
+		</p>
+	</article>
+</BasePageLayout>
