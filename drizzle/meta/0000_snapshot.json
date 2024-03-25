@@ -1,9 +1,67 @@
 {
   "version": "5",
   "dialect": "sqlite",
-  "id": "033e2dcc-8085-46f5-bedf-a28d98d7dc34",
+  "id": "ac7c312b-859a-4e3f-b581-e3fd5f21b966",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
+    "logs": {
+      "name": "logs",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": true
+        },
+        "message": {
+          "name": "message",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "details": {
+          "name": "details",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "level": {
+          "name": "level",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "src": {
+          "name": "src",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "context": {
+          "name": "context",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        },
+        "loggedByUser": {
+          "name": "loggedByUser",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false,
+          "autoincrement": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    },
     "session": {
       "name": "session",
       "columns": {
@@ -58,8 +116,15 @@
           "notNull": true,
           "autoincrement": false
         },
-        "email": {
-          "name": "email",
+        "username": {
+          "name": "username",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "pw_hash": {
+          "name": "pw_hash",
           "type": "text",
           "primaryKey": false,
           "notNull": true,

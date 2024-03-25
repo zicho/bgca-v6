@@ -16,9 +16,10 @@ const opts: LoggerOptions = {
 				// If pino-pretty needs options, they would go here
 			}
 		]
-	}
+	},
+	timestamp: pino.stdTimeFunctions.isoTime
 };
 
-const logger = pino(opts);
+const pinoLogger = pino(opts);
 
-export default logger;
+export default pinoLogger;

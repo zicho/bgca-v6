@@ -5,8 +5,8 @@ export type TNewLogMessage = typeof logs.$inferInsert;
 
 export const logs = sqliteTable('logs', {
 	id: integer('id', { mode: 'number' }).primaryKey({ autoIncrement: true }),
-	details: text('details', { mode: 'json' }).notNull(),
-	message: text('message'),
+	message: text('message').notNull(),
+	details: text('details', { mode: 'json' }),
 	level: text('level', {
 		enum: ['trace', 'debug', 'info', 'warn', 'error', 'fatal']
 	}).notNull(),

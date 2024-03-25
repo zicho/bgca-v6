@@ -1,3 +1,13 @@
+CREATE TABLE `logs` (
+	`id` integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+	`message` text NOT NULL,
+	`details` text,
+	`level` text NOT NULL,
+	`src` text,
+	`context` text,
+	`loggedByUser` text
+);
+--> statement-breakpoint
 CREATE TABLE `session` (
 	`id` text PRIMARY KEY NOT NULL,
 	`user_id` text NOT NULL,
@@ -7,5 +17,6 @@ CREATE TABLE `session` (
 --> statement-breakpoint
 CREATE TABLE `user` (
 	`id` text PRIMARY KEY NOT NULL,
-	`email` text NOT NULL
+	`username` text NOT NULL,
+	`pw_hash` text NOT NULL
 );

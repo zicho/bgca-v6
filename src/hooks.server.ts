@@ -1,9 +1,10 @@
-import logger from '$lib/logging/logger';
+import logger from '$lib/logging/ServerLogger';
 import { lucia } from '$lib/server/auth';
 import { redirect, type Handle } from '@sveltejs/kit';
 
 export const handle: Handle = async ({ event, resolve }) => {
-	logger.info(event.request, `received request from adress: ${event.getClientAddress()}`);
+	logger.info(`received request from adress: ${event.getClientAddress()}`);
+
 	const sessionId = event.cookies.get(lucia.sessionCookieName);
 
 	if (!sessionId) {
@@ -40,7 +41,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 	event.locals.user = user;
 	event.locals.session = session;
 
-	logger.info(event.locals.user, `received request to ${event.url}`);
+	logger.info(`received request to ${event.url}`, event.locals.user);
 
 	if (event.route.id?.includes('(non_authed)')) {
 		redirect(302, '/dashboard');
@@ -51,15 +52,12 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 /** @type {import('@sveltejs/kit').HandleServerError} */
 export async function handleError({ error, event, status, message }) {
-	logger.error(
-		{
-			error,
-			event,
-			status,
-			message
-		},
-		'Error was caught in server hooks'
-	);
+	logger.error('Error was caught in server hooks', {
+		error,
+		event,
+		status,
+		message
+	});
 
 	return {
 		message

@@ -1,4 +1,4 @@
-import { pinoLogger } from '$lib/logging/ServerLogger';
+import pinoLogger from '$lib/logging/PinoLogger';
 import { failedOperation, successfulOperation, type TDbOperation } from '../../TDbOperation';
 import { db } from '../../db';
 import { logs, type TNewLogMessage } from '../../schema/logging';
