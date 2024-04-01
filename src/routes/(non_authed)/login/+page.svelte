@@ -4,12 +4,16 @@
 	import Input from '$lib/components/form/Input.svelte';
 	import CenteredLayout from '$lib/layout/CenteredLayout.svelte';
 	import FormCard from '$lib/layout/FormCard.svelte';
+	import { loginUserSchema } from '$lib/validation/schemas/loginUserSchema';
+	import { zodClient } from 'sveltekit-superforms/adapters';
 	import { superForm } from 'sveltekit-superforms/client';
 
 	let { data } = $props();
 
 	const { form, constraints, message, enhance, errors } = superForm(data.form, {
-		clearOnSubmit: 'none'
+		clearOnSubmit: 'none',
+		validators: zodClient(loginUserSchema),
+		validationMethod: 'auto'
 	});
 </script>
 

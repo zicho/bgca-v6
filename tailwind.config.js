@@ -24,7 +24,7 @@ export default {
 					'neutral-content': 'WhiteSmoke',
 					info: '#53C0F3',
 					'info-content': '#032230',
-					success: '#71EB95',
+					success: '#059669',
 					'success-content': '#062d12',
 					warning: '#EACE6C',
 					'warning-content': '#43370a',

@@ -2,28 +2,42 @@
 	import Button from '$lib/components/Button.svelte';
 	import LinkButton from '$lib/components/LinkButton.svelte';
 	import Input from '$lib/components/form/Input.svelte';
+	import InputAlt from '$lib/components/form/InputAlt.svelte';
+	import { InvalidUsernameFormat } from '$lib/data/strings/FormattedValidationMessages.js';
 	import CenteredLayout from '$lib/layout/CenteredLayout.svelte';
 	import FormCard from '$lib/layout/FormCard.svelte';
+	import { registerUserSchema } from '$lib/validation/schemas/registerUserSchema';
+	import { zodClient } from 'sveltekit-superforms/adapters';
 	import { superForm } from 'sveltekit-superforms/client';
 
 	let { data } = $props();
 
 	const { form, constraints, message, enhance, errors } = superForm(data.form, {
-		clearOnSubmit: 'none'
+		clearOnSubmit: 'none',
+		validators: zodClient(registerUserSchema),
+		validationMethod: 'onblur'
+	});
+
+	$effect(() => {
+		if ($errors.username) {
+			$message = InvalidUsernameFormat;
+		} else {
+			$message = undefined;
+		}
 	});
 </script>
 
 <CenteredLayout>
 	<FormCard title="Register" errorMessage={$message}>
 		<form use:enhance method="post" class="mb-4 lg:mb-0 flex flex-col">
-			<Input
+			<InputAlt
 				id="username"
 				required
 				bind:value={$form.username}
 				label="Username"
 				type="text"
 				errors={$errors.username}
-				classes="mb-2"
+				classes="mb-2 "
 			/>
 
 			<Input
@@ -34,7 +48,7 @@
 				type="password"
 				errors={$errors.password}
 				{...$constraints.password}
-				classes="mb-2"
+				classes="mb-2 "
 			/>
 			<Input
 				id="confirm_password"
