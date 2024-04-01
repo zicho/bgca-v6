@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
-	import Input from '$lib/components/form/Input.svelte';
+	import InputAlt from '$lib/components/form/InputAlt.svelte';
 	import CenteredLayout from '$lib/layout/CenteredLayout.svelte';
 	import FormCard from '$lib/layout/FormCard.svelte';
 	import { loginUserSchema } from '$lib/validation/schemas/loginUserSchema';
@@ -19,7 +19,7 @@
 <CenteredLayout>
 	<FormCard title="Login" errorMessage={$message}>
 		<form use:enhance method="post" class="mb-4 lg:mb-0 flex flex-col">
-			<Input
+			<InputAlt
 				id="username"
 				required
 				bind:value={$form.username}
@@ -29,7 +29,7 @@
 				classes="mb-2"
 			/>
 
-			<Input
+			<InputAlt
 				id="password"
 				required
 				bind:value={$form.password}

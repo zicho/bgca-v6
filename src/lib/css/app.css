@@ -52,7 +52,7 @@
     }
 
     .border-success {
-        border-color: #1dc950;
+        border-color: #024a34;
     }
 
     .border-warning {
@@ -86,9 +86,9 @@
     @apply no-animation drop-shadow 
 }
 
-/* .navbar {
+.navbar {
     @apply navbar-color
-} */
+}
 
 .navbar li a:active, .navbar li a:focus {
     background: none !important;

@@ -19,7 +19,7 @@
 	const menuDataNotAuthenticated = $derived(navbarLinks.filter((item) => !item.authOnly));
 </script>
 
-<div class="navbar bg-navbar-color h-16 text-primary-content px-4">
+<div class="navbar bg-neutral h-16 text-primary-content px-4">
 	<div class="flex-1">
 		<a href="/" class="text-2xl">App</a>
 	</div>
