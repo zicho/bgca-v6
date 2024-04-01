@@ -1,6 +1,5 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
-	import LinkButton from '$lib/components/LinkButton.svelte';
 	import Input from '$lib/components/form/Input.svelte';
 	import CenteredLayout from '$lib/layout/CenteredLayout.svelte';
 	import FormCard from '$lib/layout/FormCard.svelte';
@@ -38,14 +37,11 @@
 				type="password"
 				errors={$errors.password}
 				{...$constraints.password}
-				classes="mb-6"
 			/>
+
+			<div class="divider py-4" />
 
 			<Button label="Sign in" id="sign-in-btn" style="primary" type="submit" />
 		</form>
-		<div slot="footer">
-			<div class="divider" />
-			<LinkButton label="Register" id="goto-register-btn" href="/register" classes="w-full" />
-		</div>
 	</FormCard>
 </CenteredLayout>

@@ -5,6 +5,9 @@ export default {
 		extend: {
 			fontFamily: {
 				main: ['ui-sans-serif', 'system-ui', 'Neon']
+			},
+			colors: {
+				'navbar-color': '#262626'
 			}
 		}
 	},
@@ -34,7 +37,7 @@ export default {
 					'base-content': '#282828',
 					'base-100': 'WhiteSmoke',
 					'base-200': '#d9d9d9', // two shade darker than base-100
-					'base-300': '#bfbfbf' // two shades darker than base-100
+					'base-300': '#bfbfbf' // two shades darker than base-100,
 				}
 			}
 		]

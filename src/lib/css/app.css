@@ -86,9 +86,9 @@
     @apply no-animation drop-shadow 
 }
 
-.navbar {
+/* .navbar {
     @apply navbar-color
-}
+} */
 
 .navbar li a:active, .navbar li a:focus {
     background: none !important;

@@ -1,4 +1,5 @@
 import { InvalidUsernameFormat } from '$lib/data/strings/FormattedValidationMessages';
+import { UsernameTaken } from '$lib/data/strings/ValidationMessages';
 import { lucia } from '$lib/server/auth';
 import { getUser } from '$lib/server/database/queries/getUser';
 import { registerUser } from '$lib/server/database/queries/registerUser';
@@ -32,7 +33,7 @@ export const actions = {
 		const existingUser = await getUser({ username: form.data.username });
 
 		if (existingUser.success && existingUser.result != null) {
-			return message(form, 'Username is already taken', {
+			return message(form, UsernameTaken, {
 				status: 403
 			});
 		}

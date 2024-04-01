@@ -1,29 +1,14 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
-	import LinkButton from '$lib/components/LinkButton.svelte';
-	import Input from '$lib/components/form/Input.svelte';
 	import InputAlt from '$lib/components/form/InputAlt.svelte';
-	import { InvalidUsernameFormat } from '$lib/data/strings/FormattedValidationMessages.js';
 	import CenteredLayout from '$lib/layout/CenteredLayout.svelte';
 	import FormCard from '$lib/layout/FormCard.svelte';
-	import { registerUserSchema } from '$lib/validation/schemas/registerUserSchema';
-	import { zodClient } from 'sveltekit-superforms/adapters';
 	import { superForm } from 'sveltekit-superforms/client';
 
 	let { data } = $props();
 
 	const { form, constraints, message, enhance, errors } = superForm(data.form, {
-		clearOnSubmit: 'none',
-		validators: zodClient(registerUserSchema),
-		validationMethod: 'onblur'
-	});
-
-	$effect(() => {
-		if ($errors.username) {
-			$message = InvalidUsernameFormat;
-		} else {
-			$message = undefined;
-		}
+		clearOnSubmit: 'none'
 	});
 </script>
 
@@ -37,20 +22,21 @@
 				label="Username"
 				type="text"
 				errors={$errors.username}
-				classes="mb-2 "
+				classes="mb-2"
+				{...$constraints.username}
 			/>
 
-			<Input
+			<InputAlt
 				id="password"
 				required
 				bind:value={$form.password}
 				label="Password"
 				type="password"
 				errors={$errors.password}
-				{...$constraints.password}
 				classes="mb-2 "
+				{...$constraints.password}
 			/>
-			<Input
+			<InputAlt
 				id="confirm_password"
 				required
 				bind:value={$form.confirm_password}
@@ -58,13 +44,13 @@
 				type="password"
 				errors={$errors.confirm_password}
 				{...$constraints.confirm_password}
-				classes="mb-6"
 			/>
+			<div class="divider py-4" />
 			<Button label="Register" id="register-btn" style="primary" type="submit" />
 		</form>
-		<div slot="footer">
+		<!-- <div slot="footer">
 			<div class="divider" />
 			<LinkButton label="Login" id="goto-login-btn" href="/login" classes="w-full" />
-		</div>
+		</div> -->
 	</FormCard>
 </CenteredLayout>
