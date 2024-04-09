@@ -7,7 +7,7 @@
 
 	let { data } = $props();
 
-	const { form, constraints, message, enhance, errors } = superForm(data.form, {
+	const { form, constraints, message, enhance, errors, posted } = superForm(data.form, {
 		clearOnSubmit: 'none'
 	});
 </script>
@@ -23,6 +23,7 @@
 				type="text"
 				errors={$errors.username}
 				classes="mb-2"
+				posted={$posted}
 				{...$constraints.username}
 			/>
 

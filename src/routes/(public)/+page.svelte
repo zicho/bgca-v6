@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import BasePageLayout from '$lib/layout/BasePageLayout.svelte';
 </script>
 

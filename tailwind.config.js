@@ -3,8 +3,9 @@ export default {
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		extend: {
-			fontFamily: {
-				main: ['ui-sans-serif', 'system-ui', 'Neon']
+			colors: {
+				dark: '#292524',
+				light: '#f5f5f4'
 			}
 		}
 	},
@@ -12,29 +13,18 @@ export default {
 	daisyui: {
 		themes: [
 			{
-				app: {
+				light: {
+					...require('daisyui/src/theming/themes')['garden'],
 					primary: 'DarkRed',
-					'primary-content': 'WhiteSmoke',
 					secondary: 'DarkRed',
 					'secondary-content': 'DarkRed',
-					accent: '#008080',
-					'accent-content': 'WhiteSmoke',
-					neutral: 'Black',
-					'neutral-content': 'WhiteSmoke',
-					'neutral-content': 'WhiteSmoke',
-					info: '#53C0F3',
-					'info-content': '#032230',
-					success: '#059669',
-					'success-content': '#d7fef2',
-					warning: '#EACE6C',
-					'warning-content': '#43370a',
-					error: '#EC8C78',
-					'error-content': '#43130a',
-					'--rounded-btn': '0.2rem',
-					'base-content': '#282828',
-					'base-100': 'WhiteSmoke',
-					'base-200': '#d9d9d9', // two shade darker than base-100
-					'base-300': '#bfbfbf' // two shades darker than base-100,
+					info: '#0091D5',
+					success: '#6BB187',
+					warning: '#DBAE59',
+					error: '#AC3E31',
+					'--rounded-box': '0.25rem',
+					'--rounded-btn': '.125rem',
+					'--rounded-badge': '.125rem'
 				}
 			}
 		]

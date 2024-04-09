@@ -1,6 +1,3 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-
 <div class="flex flex-col gap-y-4 w-44 p-8">
 	<button class="btn">Default</button>
 	<button class="btn btn-neutral">Neutral</button>

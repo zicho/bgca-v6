@@ -1,11 +1,12 @@
 <script lang="ts">
 	import type { InputProps } from '$lib/components/props/InputProps';
-	import { FormErrorIcon } from '$lib/data/ui/icons';
+	import { FormErrorIcon, FormValidIcon } from '$lib/data/ui/icons';
 
 	let {
 		id,
 		value,
 		required,
+		posted,
 		label,
 		placeholder,
 		errors,
@@ -14,7 +15,7 @@
 		constraints
 	}: InputProps = $props();
 
-	let valid = $derived(!errors && value);
+	let valid = $derived(!errors && posted);
 </script>
 
 <div class={classes || ''}>
@@ -37,15 +38,14 @@
 			name={id}
 			{type}
 			placeholder={placeholder || label}
-			class="grow"
-			class:input-error={errors}
-			class:input-success={valid}
-			class:form-placeholder-error={errors}
+			class="grow {errors ? 'text-error input-error' : ''}"
 			aria-invalid={errors ? 'true' : undefined}
 			{...constraints}
 		/>
 		{#if errors}
 			<FormErrorIcon class="text-error" />
+		{:else if valid}
+			<FormValidIcon class="text-success" />
 		{/if}
 	</label>
 </div>

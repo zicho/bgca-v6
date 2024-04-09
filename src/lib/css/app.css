@@ -2,147 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-    font-family: 'Argon';
-    src: url('./fonts/MonaspaceArgon-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Krypton';
-    src: url('./fonts/MonaspaceKrypton-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Neon';
-    src: url('./fonts/MonaspaceNeon-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Xenon';
-    src: url('./fonts/MonaspaceXenon-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@layer utilities {
-    .navbar-color { 
-        background-color: rgb(38 38 38)
-    }
-
-    .border-primary {
-        border-color: #580000
-    }
-
-    .link-hover {
-        color: #580000
-    }
-
-    .border-accent {
-        border-color: #004d4d
-    }
-
-    .border-info {
-        border-color: #0f97d7;
-    }
-
-    .border-success {
-        border-color: #024a34;
-    }
-
-    .border-warning {
-        border-color: #c9a41d
-    }
-
-    .border-error {
-        border-color: #c9391d;
-    }
-
-    
-    .form-label-error {
-        color: #c9391d;
-    }
-
-    input.form-placeholder-error::placeholder {
-        color: #c9391d;
-        opacity: 1; /* Ensures full opacity for Firefox */
-      }
-}
-
-* {
-    @apply font-main
-}
-
-.prose {
-    @apply lg:max-w-none
-}
-
 .btn {
-    @apply no-animation drop-shadow 
+	@apply no-animation drop-shadow border-opacity-20 border-neutral border text-dark;
 }
 
-.navbar {
-    @apply navbar-color
+.text-error-content {
+	@apply text-light;
 }
 
-.navbar li a:active, .navbar li a:focus {
-    background: none !important;
-    @apply text-primary-content
+.btn-neutral,
+.btn-primary,
+.btn-primary,
+.btn-accent,
+.btn-error,
+.btn-info {
+	@apply text-light;
 }
-
 
 .btn-ghost {
-    @apply border border-base-300
-}
-
-.btn-accent {
-    @apply border
+	@apply border-2;
 }
 
 .btn-link {
-    @apply shadow-none
+	@apply border-none text-primary;
 }
-
-.btn-link:hover {
-    @apply link-hover
-}
-
 
 .btn-secondary {
-    @apply border border-primary bg-transparent 
+	@apply border border-primary bg-transparent text-primary;
 }
-
 
 .btn-secondary:hover {
-    background-color: #ffd9d9;
-}
-
-.btn-primary {
-    @apply border-primary
-}
-
-.btn-accent {
-    @apply border-accent border
-}
-
-
-.btn-info {
-    @apply border-info 
-}
-
-.btn-success {
-    @apply border-success
-}
-
-.btn-warning {
-    @apply border-warning
-}
-
-.btn-error {
-    @apply border-error
+	background-color: #ffd9d9;
 }

@@ -4,6 +4,7 @@ export type InputProps = {
 	id: string;
 	label: string;
 	value: string;
+	posted?: boolean;
 	required?: boolean;
 	placeholder?: string;
 	errors?: string[] | undefined;
