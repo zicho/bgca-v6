@@ -30,7 +30,7 @@
 				{#each menuDataAuthenticated as link}
 					<NavbarLink {...link} />
 				{/each}
-				<label class="flex items-center justify-center cursor-pointer" for="signout_modal"
+				<label class="flex items-center justify-center cursor-pointer px-2" for="signout_modal"
 					><SignoutIcon class="mr-4" />Sign out</label
 				>
 			{:else}
