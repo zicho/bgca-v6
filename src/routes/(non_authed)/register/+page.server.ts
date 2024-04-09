@@ -1,4 +1,3 @@
-import { InvalidUsernameFormat } from '$lib/data/strings/FormattedValidationMessages';
 import { UsernameTaken } from '$lib/data/strings/ValidationMessages';
 import { lucia } from '$lib/server/auth';
 import { getUser } from '$lib/server/database/queries/getUser';
@@ -21,12 +20,6 @@ export const actions = {
 		const form = await superValidate(request, zod(registerUserSchema));
 
 		if (!form.valid) {
-			if (form.errors['username']) {
-				return message(form, InvalidUsernameFormat, {
-					status: 403
-				});
-			}
-
 			return fail(400, { form });
 		}
 

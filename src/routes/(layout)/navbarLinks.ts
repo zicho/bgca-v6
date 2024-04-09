@@ -1,4 +1,4 @@
-import { DashboardIcon, LoginIcon, RegisterIcon } from '$lib/data/ui/icons';
+import { DashboardIcon, LoginIcon, ProfileIcon, RegisterIcon } from '$lib/data/ui/icons';
 import type { NavbarLinkProps } from './LayoutProps';
 // import { UserIcon, MailIcon, GameIcon, CalendarIcon, SignoutIcon, LoginIcon, RegisterIcon, DashboardIcon } from "$lib/data/icons";
 // import type { NavbarLinkProps } from "$lib/components/props/components/NavbarLinkProps";
@@ -11,6 +11,14 @@ const generateNavbarLinks = (): NavbarLinkProps[] => {
 			id: 'navbar-link-dashboard',
 			aria: 'Go to dashboard',
 			icon: DashboardIcon,
+			authOnly: true
+		},
+		{
+			url: `/profile`,
+			displayText: 'Profile',
+			id: 'navbar-link-profile',
+			aria: 'Go to your profile',
+			icon: ProfileIcon,
 			authOnly: true
 		},
 		{

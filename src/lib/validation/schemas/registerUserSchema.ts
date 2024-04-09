@@ -1,19 +1,24 @@
 import {
-	InvalidUsername,
+	AtLeastOneLetter,
 	MaxCharactersF,
 	MinCharactersF,
-	PwNoMatch
+	PwNoMatch,
+	UsernameFormatRules
 } from '$lib/data/strings/ValidationMessages';
 import formatString from '$lib/utils/formatString';
 import { z } from 'zod';
 import validationRules from '../config/ValidationRules';
 import { basePasswordSchema } from './basePasswordSchema';
 
+// letters (upper/lower), numbers, dashes and underscores.
+const usernameFormatPattern = /^[a-zA-Z0-9-_]+$/;
+
 export const registerUserSchema = z
 	.object({
 		username: z
 			.string()
-			.regex(/^[a-zA-Z][a-zA-Z0-9_-]{2,}$/, { message: InvalidUsername })
+			.regex(/[a-zA-Z]/, { message: AtLeastOneLetter })
+			.regex(usernameFormatPattern, { message: UsernameFormatRules })
 			.min(validationRules.minUsernameLength, {
 				message: formatString(MinCharactersF, validationRules.minUsernameLength)
 			})

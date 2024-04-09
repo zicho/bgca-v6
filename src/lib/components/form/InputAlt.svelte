@@ -19,11 +19,19 @@
 </script>
 
 <div class={classes || ''}>
-	<div class="label">
-		<label for={id} class="label-text text-base-content text-sm font-bold">{label}</label>
-		{#if errors}
-			<span class:form-label-error={errors} class="label-text-alt">{errors[0]}</span>
-		{/if}
+	<div class="label flex">
+		<div class="flex justify-between w-full">
+			<label for={id} class="h-fit mt-auto label-text text-base-content text-sm font-bold"
+				>{label}</label
+			>
+			{#if errors}
+				<div class="flex flex-col">
+					{#each errors as err}
+						<span class="text-error text-right label-text-alt">{err}</span>
+					{/each}
+				</div>
+			{/if}
+		</div>
 	</div>
 
 	<label
